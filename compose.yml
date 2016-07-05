@@ -1,0 +1,16 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: localhost
+
+  tasks:
+  - name: Clone Ceph-Atomic buildscripts
+    git: >-
+      repo=https://gitlab.com/gbraad/ceph-atomic.git
+      version=downstream
+      depth=1
+      dest=/workspace/ceph-atomic
+
+  - name: Compose Ceph-Atomic tree
+    command: >-
+      chdir=/workspace/rdo-atomic/
+      rpm-ostree compose tree --repo=/srv/repo ./ceph-atomic-host.json

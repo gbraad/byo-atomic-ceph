@@ -1,0 +1,12 @@
+image: registry.gitlab.com/gbraad/byo-atomic-toolbox:23
+
+pages:
+  script:
+  - ./compose.sh
+  - mv /srv/repo public
+  - cp index.html ./public
+  artifacts:
+    paths:
+    - public
+  only:
+    - master
