@@ -11,9 +11,11 @@ Build Your Own Atomic - Ceph
 ## Usage
 
 ```
-ostree remote add --set=gpg-verify=false byo-atomic-ceph https://gbraad.gitlab.io/byo-atomic-ceph/
-rpm-ostree rebase byo-atomic-ceph:centos-atomic-host/7/x86_64/ceph-jewel
-systemctl reboot
+$ sudo su -
+$ setenforce 0
+$ ostree remote add --set=gpg-verify=false byo-atomic-ceph https://gbraad.gitlab.io/byo-atomic-ceph/
+$ rpm-ostree rebase byo-atomic-ceph:centos-atomic-host/7/x86_64/ceph-hammer
+$ systemctl reboot
 ```
 
 
